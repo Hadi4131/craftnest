@@ -4,22 +4,21 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ShoppingBag, Search, ArrowRight, X, Plus, Minus, Trash2, Eye } from "lucide-react";
+import { ShoppingBag, ArrowRight, Trash2, Eye } from "lucide-react";
 
 // UI Components
 import { AuroraBackground } from "@/components/ui/aurora-background";
-import { GradientButton } from "@/components/ui/gradient-button";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button"; // <--- New Import
 import { Pricing } from "@/components/ui/pricing";
 import { PillBase } from "@/components/ui/3d-adaptive-navigation-bar";
 import { TestimonialSection } from "@/components/ui/testimonial-cards";
-import { Marquee } from "@/components/ui/marquee"; // New
-import { FAQSection } from "@/components/ui/faq-section"; // New
+import { Marquee } from "@/components/ui/marquee"; 
+import { FAQSection } from "@/components/ui/faq-section";
 
 // Shadcn Components
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetFooter } from "@/components/ui/sheet";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 
 // --- Data ---
@@ -221,9 +220,11 @@ export default function Home() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mt-6">
-              <GradientButton onClick={() => document.getElementById('shop')?.scrollIntoView({ behavior: 'smooth' })}>
-                Shop Collection
-              </GradientButton>
+              {/* --- NEW BUTTON COMPONENT HERE --- */}
+              <InteractiveHoverButton 
+                text="Shop Collection" 
+                onClick={() => document.getElementById('shop')?.scrollIntoView({ behavior: 'smooth' })}
+              />
             </div>
           </motion.div>
         </AuroraBackground>
