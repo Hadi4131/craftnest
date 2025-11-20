@@ -25,101 +25,21 @@
     --ring: 23 70% 62%;
     --radius: 0.5rem;
   }
- 
-  .dark {
-    --background: 20 14.3% 4.1%;
-    --foreground: 60 9.1% 97.8%;
-    --card: 20 14.3% 4.1%;
-    --card-foreground: 60 9.1% 97.8%;
-    --popover: 20 14.3% 4.1%;
-    --popover-foreground: 60 9.1% 97.8%;
-    --primary: 23 70% 62%;
-    --primary-foreground: 60 9.1% 97.8%;
-    --secondary: 12 6.5% 15.1%;
-    --secondary-foreground: 60 9.1% 97.8%;
-    --muted: 12 6.5% 15.1%;
-    --muted-foreground: 24 5.4% 63.9%;
-    --accent: 12 6.5% 15.1%;
-    --accent-foreground: 60 9.1% 97.8%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 60 9.1% 97.8%;
-    --border: 12 6.5% 15.1%;
-    --input: 12 6.5% 15.1%;
-    --ring: 23 70% 62%;
-  }
 }
 
 @layer base {
   * {
-    border-color: hsl(var(--border));
+    @apply border-border;
   }
   body {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
+    @apply bg-background text-foreground;
   }
 }
 
 @layer components {
-  /* CSS properties needed for the gradient button animation */
-  @property --pos-x { syntax: '<percentage>'; initial-value: 11.14%; inherits: false; }
-  @property --pos-y { syntax: '<percentage>'; initial-value: 140%; inherits: false; }
-  @property --spread-x { syntax: '<percentage>'; initial-value: 150%; inherits: false; }
-  @property --spread-y { syntax: '<percentage>'; initial-value: 180.06%; inherits: false; }
-  @property --color-1 { syntax: '<color>'; initial-value: #000; inherits: false; }
-  @property --color-2 { syntax: '<color>'; initial-value: #08012c; inherits: false; }
-  @property --color-3 { syntax: '<color>'; initial-value: #4e1e40; inherits: false; }
-  @property --color-4 { syntax: '<color>'; initial-value: #70464e; inherits: false; }
-  @property --color-5 { syntax: '<color>'; initial-value: #88394c; inherits: false; }
-  @property --border-angle { syntax: '<angle>'; initial-value: 20deg; inherits: true; }
-  @property --border-color-1 { syntax: '<color>'; initial-value: hsla(340, 75%, 60%, 0.2); inherits: true; }
-  @property --border-color-2 { syntax: '<color>'; initial-value: hsla(340, 75%, 40%, 0.75); inherits: true; }
-  @property --stop-1 { syntax: '<percentage>'; initial-value: 37.35%; inherits: false; }
-  @property --stop-2 { syntax: '<percentage>'; initial-value: 61.36%; inherits: false; }
-  @property --stop-3 { syntax: '<percentage>'; initial-value: 78.42%; inherits: false; }
-  @property --stop-4 { syntax: '<percentage>'; initial-value: 89.52%; inherits: false; }
-  @property --stop-5 { syntax: '<percentage>'; initial-value: 100%; inherits: false; }
-
   .gradient-button {
     @apply relative appearance-none cursor-pointer;
-    background: radial-gradient(
-      var(--spread-x) var(--spread-y) at var(--pos-x) var(--pos-y),
-      var(--color-1) var(--stop-1),
-      var(--color-2) var(--stop-2),
-      var(--color-3) var(--stop-3),
-      var(--color-4) var(--stop-4),
-      var(--color-5) var(--stop-5)
-    );
+    background: radial-gradient(circle, #DE8F5F 0%, #FFB26F 100%);
     transition: all 0.5s ease-in-out;
-  }
-
-  .gradient-button::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(
-      var(--border-angle),
-      var(--border-color-1),
-      var(--border-color-2)
-    );
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    pointer-events: none;
-  }
-
-  .gradient-button:hover {
-    --pos-x: 0%;
-    --pos-y: 91.51%;
-    --spread-x: 120.24%;
-    --spread-y: 103.18%;
-    --color-1: #DE8F5F; 
-    --color-2: #FFB26F;
-    --color-3: #FFB38E;
-    --color-4: #FFCF9D;
-    --color-5: #DE8F5F;
-    --border-angle: 190deg;
-    --border-color-1: hsla(23, 78%, 90%, 0.1);
-    --border-color-2: hsla(23, 75%, 90%, 0.6);
   }
 }
