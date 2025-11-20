@@ -8,7 +8,8 @@ import { ShoppingBag, ArrowRight, Trash2, Eye } from "lucide-react";
 
 // UI Components
 import { AuroraBackground } from "@/components/ui/aurora-background";
-import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button"; // <--- New Import
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
+import { AnimatedText } from "@/components/ui/animated-text"; // <--- NEW IMPORT
 import { Pricing } from "@/components/ui/pricing";
 import { PillBase } from "@/components/ui/3d-adaptive-navigation-bar";
 import { TestimonialSection } from "@/components/ui/testimonial-cards";
@@ -212,7 +213,9 @@ export default function Home() {
               New Summer Collection Available
             </div>
             <h1 className="text-6xl md:text-8xl font-bold tracking-tighter text-slate-900 dark:text-white leading-[0.9]">
-              Designs Made <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-deep to-brand-orange">Personal.</span>
+              Designs Made <br/> 
+              {/* --- UPDATED ANIMATED TEXT --- */}
+              <AnimatedText />
             </h1>
             <p className="text-lg md:text-2xl font-light text-slate-600 dark:text-neutral-300 max-w-xl leading-relaxed">
               A curated marketplace for aesthetic, custom-made goods. 
@@ -220,7 +223,6 @@ export default function Home() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mt-6">
-              {/* --- NEW BUTTON COMPONENT HERE --- */}
               <InteractiveHoverButton 
                 text="Shop Collection" 
                 onClick={() => document.getElementById('shop')?.scrollIntoView({ behavior: 'smooth' })}
